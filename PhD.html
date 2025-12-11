@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhD Position - Prof. Cheng-Hsien Lee</title>
+    <style>
+        :root {
+            /* Ocean Current Palette */
+            --deep-ocean: #023e8a;
+            --ocean-blue: #0077b6;
+            --surface-cyan: #0096c7;
+            --foam-white: #ade8f4;
+            --coral-accent: #ff6b6b;
+            
+            --bg-color: #e0f7fa;
+            --text-color: #2b2d42;
+            --section-bg-even: #f0faff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(180deg, #caf0f8 0%, #edf6f9 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 119, 182, 0.15);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Flowing Ocean Header */
+        header {
+            background: linear-gradient(-45deg, var(--deep-ocean), var(--ocean-blue), var(--surface-cyan), #00b4d8);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            color: white;
+            padding: 60px 20px 80px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* SVG Wave Divider */
+        .wave-divider {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+        }
+
+        .wave-divider svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 70px;
+        }
+
+        .wave-divider .shape-fill {
+            fill: #FFFFFF;
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.8rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            color: var(--deep-ocean);
+            margin-top: 40px;
+            font-size: 1.8rem;
+            border-left: 6px solid var(--surface-cyan);
+            padding-left: 15px;
+            display: inline-block;
+            width: 100%;
+        }
+
+        section {
+            padding: 30px 40px;
+            margin-bottom: 0;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--section-bg-even);
+        }
+
+        /* Carousel Styles - Height Adjusted */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 500px; /* Increased height to 500px */
+            margin: 30px auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0, 119, 182, 0.2);
+            background-color: #000; /* Black background for images that don't fill the space */
+        }
+
+        .carousel-slide {
+            display: none;
+            width: 100%;
+            height: 100%; /* Ensure slide fills container */
+            display: flex; /* Use flexbox to center content */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+        }
+
+        /* UPDATED: Separate rules for IMG and VIDEO */
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Show full image, letterboxing if necessary */
+            display: block;
+        }
+
+        .carousel-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Keep videos filling the space */
+            display: block;
+        }
+
+        .carousel-caption {
+            padding: 15px;
+            background: rgba(2, 62, 138, 0.85);
+            color: white;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .carousel-prev, .carousel-next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.3s ease;
+            user-select: none;
+            background-color: rgba(255,255,255,0.3);
+            border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+        }
+
+        .carousel-next { right: 0; }
+        .carousel-prev { left: 0; }
+        .carousel-prev:hover, .carousel-next:hover {
+            background-color: var(--surface-cyan);
+        }
+
+        /* Blinking Animation for Stipend */
+        @keyframes blinker {
+            50% { opacity: 0.5; }
+        }
+
+        .blink-highlight {
+            animation: blinker 2s linear infinite;
+            color: #d63031; /* Slightly brighter red for attention */
+            text-shadow: 0 0 5px rgba(255, 107, 107, 0.4);
+        }
+
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+        @keyframes fade {
+            from {opacity: .6} to {opacity: 1}
+        }
+
+        /* PI Section */
+        .pi-section {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            background: linear-gradient(to right, #ffffff, #f0faff);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e1eef5;
+        }
+
+        .pi-photo {
+            width: 150px;
+            height: 160px;
+            background: var(--foam-white);
+            border-radius: 50%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--deep-ocean);
+            border: 4px solid white;
+            box-shadow: 0 4px 12px rgba(0, 119, 182, 0.2);
+            overflow: hidden;
+            font-size: 0.8rem;
+        }
+        
+        .pi-photo img { width: 100%; height: 50%; object-fit: cover; }
+
+        .pi-details h3 {
+            margin: 0 0 5px 0;
+            color: var(--deep-ocean);
+            font-size: 1.5rem;
+        }
+
+        .pi-title {
+            color: var(--surface-cyan);
+            font-weight: 600;
+            font-style: italic;
+            margin-bottom: 10px;
+            display: block;
+        }
+        
+        .pi-title a {
+            color: var(--surface-cyan);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--surface-cyan);
+        }
+
+        .pi-title a:hover {
+            border-bottom: 1px solid var(--surface-cyan);
+        }
+
+        .pi-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .pi-btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 14px;
+            background-color: white;
+            border: 1px solid var(--ocean-blue);
+            color: var(--ocean-blue);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            text-decoration: none;
+            transition: all 0.2s;
+            font-weight: 600;
+        }
+
+        .pi-btn:hover {
+            background-color: var(--ocean-blue);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Facilities Grid */
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .facility-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 119, 182, 0.1);
+            border-top: 4px solid var(--ocean-blue);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .facility-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .facility-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .facility-card h3 {
+            color: var(--deep-ocean);
+            font-size: 1.2rem;
+            margin: 0 0 10px 0;
+            font-weight: 600;
+        }
+        
+        .facility-card p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* Research Topic Box */
+        .highlight-box {
+            background: linear-gradient(135deg, #e0f7fa 0%, #ffffff 100%);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 6px solid var(--ocean-blue);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        /* Salary Box */
+        .salary-box {
+            background-color: #fff8f8;
+            border: 1px solid #ffebeb;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 15px;
+            border-left: 6px solid var(--coral-accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .salary-box::after {
+            content: "";
+            position: absolute;
+            top: 0; right: 0;
+            width: 50px; height: 50px;
+            background: linear-gradient(135deg, transparent 50%, rgba(255, 107, 107, 0.1) 50%);
+        }
+
+        .salary-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--coral-accent);
+        }
+
+        /* Tags */
+        .tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--ocean-blue), var(--surface-cyan));
+            color: white;
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            margin: 0 8px 8px 0;
+            font-weight: 600;
+            box-shadow: 0 2px 5px rgba(0, 119, 182, 0.2);
+            transition: transform 0.2s;
+        }
+        
+        .tag:hover { transform: translateY(-2px); }
+
+        /* Buttons */
+        .cta-button {
+            display: block;
+            width: fit-content;
+            margin: 40px auto 0;
+            background: linear-gradient(90deg, var(--deep-ocean), var(--ocean-blue));
+            color: white;
+            padding: 16px 50px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(2, 62, 138, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(2, 62, 138, 0.4);
+            background: linear-gradient(90deg, var(--ocean-blue), var(--surface-cyan));
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 0;
+            padding: 40px;
+            background-color: var(--deep-ocean);
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .container { margin: 0; border-radius: 0; }
+            .pi-section { flex-direction: column; text-align: center; }
+            .pi-links { justify-content: center; }
+            h1 { font-size: 2rem; }
+            .carousel-prev, .carousel-next { width: 30px; height: 30px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>PhD Student Position</h1>
+            <div class="subtitle">Focus: Scientific Machine Learning & Oceanography</div>
+            
+            <!-- SVG Wave Divider -->
+            <div class="wave-divider">
+                <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+                </svg>
+            </div>
+        </header>
+
+        <!-- New PI Section with Specific Details -->
+        <section>
+            <h2>About the Principal Investigator</h2>
+            <div class="pi-section">
+                <div class="pi-photo">
+                    <!-- Placeholder PI Image: User should replace with actual photo -->
+                    <span><img src="CHLee.jpg" alt="CH Lee"></span>
+                </div>
+                <div class="pi-details">
+                    <h3>Prof. Cheng-Hsien Lee</h3>
+                    <span class="pi-title">
+                        Chair & Distinguished Young Researcher<br>
+                        <a href="https://maev.nsysu.edu.tw/?Lang=en" target="_blank">Dept. of Marine Environment and Engineering, NSYSU</a>
+                    </span>
+                    <p style="text-align: justify;">
+                        Prof. Lee leads the <strong>Multiphase Sediment Transport Laboratory</strong> at National Sun Yat-sen University. His research expertise covers Fluid Mechanics, Sediment Transport, Granular Flows, and Computational Fluid Dynamics (CFD). For more details refer to google scholar profile. 
+                    </p>
+                    <div class="pi-links">
+                        <a href="https://scholar.google.com/citations?user=GskSJxUAAAAJ&hl=en&oi=ao" target="_blank" class="pi-btn">
+                            Google Scholar
+                        </a>
+                        <a href="https://maev.nsysu.edu.tw/p/406-1261-222881,r676.php?Lang=en" target="_blank" class="pi-btn">
+                            Faculty Profile
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Project Overview</h2>
+            <p style="text-align: justify;"> This research project operates at the cutting-edge intersection of  <strong>Computational Fluid Dynamics (CFD)</strong> and <strong>Scientific Machine Learning (SciML)</strong>,, aiming to revolutionize how we predict oceanographic phenomena. Traditional numerical models for forecasting ocean waves and currents are often computationally expensive and time-consuming, limiting their ability to provide real-time insights. Our goal is to overcome these bottlenecks by developing advanced deep learning architectures—specifically <strong>Nueral Operators</strong> (such as MLP, GAN, CNN)—which can learn  the hydrodynamic properties.</p>
+
+            <p style="text-align: justify;">The selected PhD candidate will focus on designing, training, and validating these neural networks to forecast complex marine dynamics with high fidelity. By integrating fundamental physical laws with data-driven approaches, we aim to achieve simulation speeds orders of magnitude faster than conventional solvers without sacrificing accuracy. This work has profound implications for maritime safety, offshore wind energy planning, and climate monitoring. We are seeking a dedicated researcher eager to bridge the gap between rigorous physical modeling and modern AI, contributing directly to the next generation of real-time ocean forecasting systems.</p>
+            
+            <!-- Carousel -->
+            <div class="carousel-container">
+                <!-- UPDATED: Video Slide -->
+                <div class="carousel-slide fade">
+                    <img src="image2.gif" autoplay muted loop playsinline></video>
+                    <div class="carousel-caption">Simulating Global Ocean Currents</div>
+                </div>
+                <div class="carousel-slide fade">
+                    <img src="image1.gif" alt="Neural Networks">
+                    <div class="carousel-caption">AI Model learning </div>
+                </div>
+                <div class="carousel-slide fade">
+                    <img src="image.png" alt="Data Visualization">
+                    <div class="carousel-caption">High-Fidelity Flow Visualization</div>
+                </div>
+                
+                <a class="carousel-prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="carousel-next" onclick="plusSlides(1)">&#10095;</a>
+            </div>
+
+            <div class="highlight-box">
+                <h3 style="margin-top:0; color: var(--deep-ocean);">Research Topic</h3>
+                <p style="font-size: 1.25rem; font-weight: 500; color: var(--ocean-blue); margin-bottom: 10px;">
+                    Forecasting Wave & Current using Neural Operators
+                </p>
+                <p>The successful candidate will work on developing and applying advanced deep learning techniques to model and forecast complex oceanographic phenomena with higher efficiency than traditional numerical methods.</p>
+            </div>
+        </section>
+
+        <!-- New Facilities Section -->
+        <section>
+            <h2>Lab Facilities & Environment</h2>
+            <div class="facilities-grid">
+                <div class="facility-card">
+                    <div class="facility-icon">💻</div>
+                    <h3>High-Performance Computing</h3>
+                    <p>Access to powerful workstations and servers equipped with high-end GPUs for training deep learning models.</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">🤝</div>
+                    <h3>Collaborative Team</h3>
+                    <p>Join a team with 1 Post-doc and 1 PhD student already working on similar AI-driven ocean topics.</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">💰</div>
+                    <h3>Robust Funding</h3>
+                    <p>Stable project funding from NSTC ensures guaranteed stipends and research resources.</p>
+                </div>
+                <div class="facility-card">
+                    <div class="facility-icon">🔬</div>
+                    <h3>Well-Equipped Lab</h3>
+                    <p>A modern, well-equipped workspace within the Multiphase Sediment Transport Laboratory.</p>
+                </div>
+                 <div class="facility-card">
+                    <div class="facility-icon">✈️</div>
+                    <h3>Conference Support</h3>
+                    <p>Financial support provided for attending international conferences to present your research.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Requirements</h2>
+            <p>We value curiosity and a strong foundation in science or engineering.</p>
+            <div class="tag-container">
+                <span class="tag">Applied Mathematics</span>
+                <span class="tag">Computational Fluid Dynamics</span>
+                <span class="tag">Geomorphology</span>
+                <span class="tag">Ocean Science</span>
+                <span class="tag">Computer Science</span>
+                <span class="tag">Mechanical Engineering</span>
+                <span class="tag">Python / Pytorch</span>
+            </div>
+            
+            <p style="margin-top: 20px; font-weight: 600; font-style: italic; color: var(--deep-ocean); border-left: 4px solid var(--coral-accent); padding-left: 15px;">
+                "A dedicated and hard-working student is required to learn and perform."
+            </p>
+
+        </section>
+
+        <!-- New Section for Programming & AI -->
+        <section>
+            <h2>Programming & AI Skills</h2>
+            <div class="highlight-box" style="margin-top: 10px; border-left-color: var(--deep-ocean); background: #fdfdfd;">
+                <p style="font-size: 1.1rem;">
+                    The candidate should have <strong>proper knowledge of programming</strong> and at least <strong>basic knowledge of machine learning</strong>.
+                </p>
+                <p style="font-size: 0.95rem; color: #666;">
+                    Prior experience with Python libraries (NumPy, SciPy) and deep learning frameworks (PyTorch, TensorFlow) is highly advantageous.
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Compensation</h2>
+            <ul>
+                <li><strong>Duration:</strong> 3-Year Position</li>
+                <li style="display: flex; align-items: center;">
+                    <strong style="display: flex; align-items: center;">
+                        <!-- Custom Location Icon SVG matching the uploaded image -->
+                        <svg width="24" height="24" viewBox="0 0 512 512" style="margin-right: 8px;">
+                            <!-- Yellow Ring at bottom -->
+                            <ellipse cx="256" cy="460" rx="140" ry="30" fill="none" stroke="#f4b400" stroke-width="40"/>
+                            <!-- Red Pin Body - Shifted down to fit head -->
+                            <path d="M256 82C167.6 82 96 153.6 96 242c0 88.4 160 250 160 250s160-161.6 160-250c0-88.4-71.6-160-160-160z" fill="#db4437"/>
+                            <!-- White Center Dot -->
+                            <circle cx="256" cy="242" r="60" fill="white"/>
+                        </svg>
+                        Location:
+                    </strong> 
+                    <a href="https://www.google.com/maps?sca_esv=d340eac8d7c27e5b&rlz=1C1CHBF_en-GBTW1183TW1183&sxsrf=AE3TifMISxxF-buCCKRyodM2vCDrsAOa1A:1765159548164&gs_lp=Egxnd3Mtd2l6LXNlcnAiBmRlcGFydCoCCAAyBBAjGCcyChAjGIAEGCcYigUyCxAAGIAEGJECGIoFMgsQABiABBiRAhiKBTIFEC4YgAQyCxAAGIAEGJIDGIoFMggQABiABBiSAzIKEAAYgAQYFBiHAjIKEAAYgAQYFBiHAjIIEAAYgAQYyQNIkCRQkAlY1hRwA3gAkAEAmAFWoAG4A6oBATa4AQHIAQD4AQGYAgagAswDwgIKEC4YgAQYJxiKBcICCxAuGIAEGNEDGMcBwgIFEAAYgATCAgoQLhiABBhDGIoFwgIKEAAYgAQYQxiKBZgDAIgGAZIHATagB4hlsgcBNrgHzAPCBwUwLjUuMcgHDoAIAA&um=1&ie=UTF-8&fb=1&gl=tw&sa=X&geocode=KWH5JwAGBG40MX0N5C5Q778G&daddr=No.+70%E8%99%9F,+Lianhai+Rd,+Gushan+District,+Kaohsiung+City,+804" target="_blank" style="color: var(--ocean-blue); text-decoration: none; border-bottom: 1px dashed var(--ocean-blue); margin-left: 5px;">
+                        NSYSU, Kaohsiung, Taiwan
+                    </a>
+                </li>
+            </ul>
+
+            <div class="salary-box">
+                <h3 style="margin-top:0; color: var(--coral-accent);">Monthly Stipend</h3>
+                <div style="display: flex; align-items: baseline; gap: 10px;">
+                    <span class="salary-amount blink-highlight">~40,000 NTD</span>
+                </div>
+                <p style="margin-bottom: 0; margin-top: 10px; color: #555;">
+                    <strong>Breakdown:</strong> 15,000 NTD (University Scholarship) + 25,000 NTD (Lab Project Funding)
+                </p>
+            </div>
+        </section>
+
+        <section style="text-align:center; background: transparent;">
+            <h2>Ready to Apply?</h2>
+            <p>Send your CV, Transcripts, and Research Statement to:</p>
+            <p style="font-size: 1.1rem; font-weight: bold;">
+                Prof. Cheng-Hsien Lee (<a href="mailto:kethenlee@mail.nsysu.edu.tw" style="color: var(--ocean-blue);">kethenlee@mail.nsysu.edu.tw</a>)
+            </p>
+            
+            <a href="mailto:kethenlee@mail.nsysu.edu.tw" class="cta-button">Apply Now</a>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Multiphase Sediment Transport Laboratory, NSYSU. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) { showSlides(slideIndex += n); }
+        function currentSlide(n) { showSlides(slideIndex = n); }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("carousel-slide");
+            if (n > slides.length) {slideIndex = 1}    
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+            }
+            slides[slideIndex-1].style.display = "block";  
+        }
+
+        setInterval(function() { plusSlides(1); }, 5000);
+    </script>
+
+</body>
+</html>
